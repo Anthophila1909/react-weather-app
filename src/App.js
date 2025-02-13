@@ -2,7 +2,7 @@ import React from "react";
 import WeatherApp from "./WeatherApp";
 import Footer from "./Footer";
 
-function App() {
+export default function App() {
   return (
     <div className="WeatherApp">
       <WeatherApp />
@@ -10,5 +10,3 @@ function App() {
     </div>
   );
 }
-
-export default App;
