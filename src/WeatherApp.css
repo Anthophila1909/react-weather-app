@@ -69,3 +69,10 @@
   font-size: 20px;
   margin-top: 12px;
 }
+
+.loader {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}

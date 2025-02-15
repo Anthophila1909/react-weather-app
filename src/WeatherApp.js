@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import WeatherInfo from "./WeatherInfo";
 import axios from "axios";
+import ClipLoader from "react-spinners/ClipLoader";
 import "./WeatherApp.css";
 
 export default function WeatherApp(props) {
@@ -61,6 +62,16 @@ export default function WeatherApp(props) {
     );
   } else {
     search();
-    return "Loading...";
+    return (
+      <div className="loader">
+        <ClipLoader
+          color="#a2a8d3"
+          loading={true}
+          size={50}
+          aria-label="Loading Spinner"
+          data-testid="loader"
+        />
+      </div>
+    );
   }
 }
