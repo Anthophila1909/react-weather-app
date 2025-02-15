@@ -1,0 +1,16 @@
+.app-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 100px 100px 0;
+  border: 2px solid #d9d9d9;
+  border-radius: 8px;
+  padding: 30px;
+  background: linear-gradient(-225deg, #fffeff 0%, #d7fffe 100%);
+  box-shadow: rgba(0, 0, 0, 0.15) 0px 3px 8px;
+}
+
+.footer {
+  text-align: center;
+  margin-top: 20px;
+}

@@ -3,7 +3,7 @@ import React from "react";
 export default function Footer() {
   return (
     <div className="Footer">
-      This projekt was coded by Elena Würtz and is open-sourced on{" "}
+      This project was coded by Elena Würtz and is open-sourced on{" "}
       <a
         href="https://github.com/Anthophila1909/react-weather-app"
         target="_blank"
