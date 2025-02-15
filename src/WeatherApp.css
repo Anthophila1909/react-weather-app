@@ -27,8 +27,13 @@
   justify-content: left;
 }
 
+.weather-app .WeatherTemperature {
+  display: flex;
+  align-items: center;
+  margin: 0;
+}
+
 .weather-app img {
-  margin-right: 10px;
   height: 90px;
   width: 90px;
 }
@@ -37,9 +42,9 @@
   font-size: 70px;
 }
 
-.weather-app span {
-  margin-top: 12px;
+.weather-app .unit {
   font-size: 18px;
+  margin: 0 0 33px 5px;
 }
 
 .weather-app ul {
