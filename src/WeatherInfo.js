@@ -1,4 +1,5 @@
 import React from "react";
+import FormattedDate from "./FormattedDate";
 import "./WeatherApp.css";
 
 export default function WeatherInfo(props) {
@@ -24,7 +25,9 @@ export default function WeatherInfo(props) {
             <h2>{props.data.city_name}</h2>
           </li>
           <li>
-            <h3>Samstag, 09:00</h3>
+            <h3>
+              <FormattedDate date={props.data.date} />
+            </h3>
           </li>
           <li>
             <h3 className="text-capitalize">{props.data.description}</h3>

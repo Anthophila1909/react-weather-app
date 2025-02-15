@@ -17,6 +17,7 @@ export default function WeatherApp(props) {
       wind: response.data.wind.speed,
       description: response.data.condition.description,
       icon: response.data.condition.icon_url,
+      date: new Date(response.data.time * 1000),
     });
   }
 
