@@ -1,8 +1,9 @@
+.App {
+  max-width: 800px;
+  margin: 30px auto;
+}
+
 .app-container {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  margin: 100px 100px 0;
   border: 2px solid #d9d9d9;
   border-radius: 8px;
   padding: 30px;

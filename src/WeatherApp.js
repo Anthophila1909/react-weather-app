@@ -1,57 +1,65 @@
-import React from "react";
+import React, { useState } from "react";
+import WeatherInfo from "./WeatherInfo";
+import axios from "axios";
 import "./WeatherApp.css";
 
-export default function WeatherApp() {
-  return (
-    <div className="weather-app">
-      <form>
-        <div className="row">
-          <div className="col-9">
-            <input
-              type="search"
-              placeholder="Enter a city ...."
-              autoFocus="on"
-              className="search-input"
-            />
-          </div>
-          <div className="col-3">
-            <input type="submit" value="Search" className="search-submit" />
-          </div>
-        </div>
-      </form>
+export default function WeatherApp(props) {
+  let [weatherData, setWeatherData] = useState({ ready: false });
+  let [city, setCity] = useState(props.defaultCity);
 
-      <div className="row">
-        <div className="col-4">
-          <div className="weather-info">
-            <img
-              src="https://ssl.gstatic.com/onebox/weather/64/partly_cloudy.png"
-              alt="weather-icon"
-            />
-            <h1>-1 </h1>
-            <span>°C | °F</span>
+  function getWeather(response) {
+    setWeatherData({
+      ready: true,
+      city_name: response.data.city,
+      temperature: response.data.temperature.current,
+      feels_like: response.data.temperature.feels_like,
+      humidity: response.data.temperature.humidity,
+      wind: response.data.wind.speed,
+      description: response.data.condition.description,
+      icon: response.data.condition.icon,
+    });
+  }
+
+  function handleSubmit(event) {
+    event.preventDefault();
+    search();
+  }
+
+  function updateCity(event) {
+    setCity(event.target.value);
+  }
+
+  function search() {
+    const apiKey = "93tdd4d3b4c2db3bcc87b00foc83ce4a";
+    let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&units=metric`;
+
+    axios.get(apiUrl).then(getWeather);
+  }
+
+  if (weatherData.ready) {
+    return (
+      <div className="weather-app">
+        <form onSubmit={handleSubmit}>
+          <div className="row">
+            <div className="col-9">
+              <input
+                type="search"
+                placeholder="Enter a city ...."
+                autoFocus="on"
+                className="search-input"
+                onChange={updateCity}
+              />
+            </div>
+            <div className="col-3">
+              <input type="submit" value="Search" className="search-submit" />
+            </div>
           </div>
-        </div>
-        <div className="col-4">
-          <ul className="weather-details">
-            <li>Precipitation: 0%</li>
-            <li>Humidity: 66%</li>
-            <li>Wind: 5 km/h</li>
-          </ul>
-        </div>
-        <div className="col-4">
-          <ul className="weather-location">
-            <li>
-              <h2>Weather in Ulm</h2>
-            </li>
-            <li>
-              <h3>Samstag, 09:00</h3>
-            </li>
-            <li>
-              <h3>Überwiegend bewölkt</h3>
-            </li>
-          </ul>
-        </div>
+        </form>
+        <WeatherInfo data={weatherData} />
       </div>
-    </div>
-  );
+    );
+  } else {
+    search();
+    return "Loading...";
+  }
 }

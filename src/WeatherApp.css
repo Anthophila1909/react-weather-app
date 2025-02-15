@@ -35,12 +35,11 @@
 
 .weather-app h1 {
   font-size: 70px;
-  margin-left: 15px;
 }
 
 .weather-app span {
-  margin-top: 10px;
-  font-size: 20px;
+  margin-top: 12px;
+  font-size: 18px;
 }
 
 .weather-app ul {
