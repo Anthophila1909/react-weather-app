@@ -6,10 +6,7 @@ export default function WeatherInfo(props) {
     <div className="row">
       <div className="col-4">
         <div className="weather-info">
-          <img
-            src="https://ssl.gstatic.com/onebox/weather/64/partly_cloudy.png"
-            alt="weather-icon"
-          />
+          <img src={props.data.icon} alt={props.data.description} />
           <h1>{Math.round(props.data.temperature)}</h1>
           <span>°C | °F</span>
         </div>
@@ -30,7 +27,7 @@ export default function WeatherInfo(props) {
             <h3>Samstag, 09:00</h3>
           </li>
           <li>
-            <h3>{props.data.description}</h3>
+            <h3 className="text-capitalize">{props.data.description}</h3>
           </li>
         </ul>
       </div>
