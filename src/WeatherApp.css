@@ -33,7 +33,7 @@
   margin: 0;
 }
 
-.weather-app img {
+.weather-app .weather-info img {
   height: 90px;
   width: 90px;
 }

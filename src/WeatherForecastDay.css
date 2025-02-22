@@ -1,0 +1,19 @@
+.forecast-icon img {
+  width: 70px;
+  height: 70px;
+}
+
+.forecast-day {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.forecast-temperature-max {
+  font-weight: 500;
+  opacity: 0.9;
+}
+
+.forecast-temperature-min {
+  opacity: 0.7;
+}
